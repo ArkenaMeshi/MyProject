@@ -11,26 +11,26 @@ const LogIn=()=>{
         <h2> <em>Log In  to save properties <br/>and much more</em></h2>
     
 
-        <div class="row mb-3">
-          <label for="inputEmail3" class="col-sm-5 col-form-label">
+        <div className="row mb-3">
+          <label for="inputEmail3" className="col-sm-5 col-form-label">
             {" "}
             Email{" "}
           </label>
-          <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" />
+          <div className="col-sm-10">
+            <input type="email" className="form-control" id="inputEmail3" />
           </div>
         </div>
-        <div class="row mb-3">
-          <label for="inputPassword3" class="col-sm-5 col-form-label ">
+        <div className="row mb-3">
+          <label for="inputPassword3" className="col-sm-5 col-form-label ">
             {" "}
             Password{" "}
           </label>
-          <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword3" />
+          <div className="col-sm-10">
+            <input type="password" className="form-control" id="inputPassword3" />
           </div>
         </div>
-        <div class="text-center">
-          <button type="submit" class="btn btn-info">
+        <div className="text-center">
+          <button type="submit" className="btn btn-info">
             Log In  {" "}
           </button>
         </div>

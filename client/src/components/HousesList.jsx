@@ -34,7 +34,7 @@ const HousesList = (props) => {
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
-                    <h5 className="card-title">{home.propertyType}</h5>
+                    <h5 className="card-title" >{home.propertyType}</h5>
                     <p className="card-text">{home.monthlyRent}</p>
                     <p className="card-text">{home.town}</p>
                     <Link

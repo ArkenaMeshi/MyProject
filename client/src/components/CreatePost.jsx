@@ -15,7 +15,7 @@ const CreatePost = () => {
   const [monthlyRent, setMonthlyRent] = useState("");
   const [maxTenants, setMaxTenants] = useState("");
   const [tenancylength, setTenancyLength] = useState("");
-  const [billsincluded, setBillsIncluded] = useState("");
+  const [billsincluded, setBillsIncluded] = useState(false);
   const [gardenAccess, setGardenAccess] = useState(false);
   const [parking, setParking] = useState(false);
   const [fireplace, setFireplace] = useState(false);
@@ -47,13 +47,13 @@ const CreatePost = () => {
         studentsAllowed,
         petsAllowed,
         smokersAllowed,
-        billsincluded,
+        billsincluded
       })
       .then((res) => {
         console.log(res);
         console.log(res.data);
         // setValidation({})
-        navigate("/");
+        navigate("/list");
       })
       .catch((err) => {
         console.log(err);

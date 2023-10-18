@@ -66,7 +66,7 @@ const About = () => {
                   are totally transparent. Starting from a totally free service,
                   ranging up to a £69 service for our full tenant-find package
                   which includes advertising on Rightmove, Zoopla, and other
-                  major property portals. We’ll support you all the way from
+                  major property portals. We will support you all the way from
                   creating your advert, finding the right tenant, and everything
                   involved in creating a tenancy.
                 </p>

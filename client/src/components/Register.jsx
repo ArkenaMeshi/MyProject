@@ -26,49 +26,49 @@ const Register = () => {
         
         <p>Already registered?  <Link to={'/login'}>Log  in </Link></p>
 
-        <div class="row mb-3">
-          <label for="inputName" class="col-sm-5 col-form-label">
+        <div className="row mb-3">
+          <label for="inputName" className="col-sm-5 col-form-label">
             {" "}
             Name{" "}
           </label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputName" />
+          <div className="col-sm-10">
+            <input type="text" className="form-control" id="inputName" />
           </div>
         </div>
 
-        <div class="row mb-3">
-          <label for="inputEmail3" class="col-sm-5 col-form-label">
+        <div className="row mb-3">
+          <label for="inputEmail3" className="col-sm-5 col-form-label">
             {" "}
             Email{" "}
           </label>
-          <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" />
+          <div className="col-sm-10">
+            <input type="email" className="form-control" id="inputEmail3" />
           </div>
         </div>
-        <div class="row mb-3">
-          <label for="inputPassword3" class="col-sm-5 col-form-label ">
+        <div className="row mb-3">
+          <label for="inputPassword3" className="col-sm-5 col-form-label ">
             {" "}
             Password{" "}
           </label>
-          <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword3" />
+          <div className="col-sm-10">
+            <input type="password" className="form-control" id="inputPassword3" />
           </div>
         </div>
-        <div class="row mb-3 ">
-          <label for="inputConfirmPassword3" class="col-sm-5 col-form-label">
+        <div className="row mb-3 ">
+          <label for="inputConfirmPassword3" className="col-sm-5 col-form-label">
             {" "}
             Confirm Password{" "}
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="inputConfirmPassword3"
             />
           </div>
         </div>
-        <div class="text-center">
-          <button type="submit" class="btn btn-info">
+        <div className="text-center">
+          <button type="submit" className="btn btn-info">
             Register {" "}
           </button>
         </div>
