@@ -10,9 +10,33 @@ const Register = () => {
   const[name,setName]=useState("")
   const[email,setEmail]=useState("")
   const[password,setPassword]=useState("")
+  const [confirmPassword, setConfirmPassword] = useState("");
   
   const navigate = useNavigate();
-  const [val, setValidation] = useState({});
+  const [validation, setValidation] = useState({});
+
+  const SubmitHandler = (e) => {
+    e.preventDefault();
+    
+    axios
+      .post(
+        "http://localhost:8000/api/register",
+        {
+          name,
+          email,
+          password,
+          confirmPassword,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((response) => navigate("/"))
+      .catch((err) => {
+        console.log(err);
+        setValidation(err.response.data.errors);
+      });
+  };
 
 
 
@@ -20,8 +44,9 @@ const Register = () => {
 
 
   return (
+
     <div className="container-register  d-flex justify-content-center w-50 mx-auto mb-20">
-      <form>
+      <form onSubmit={SubmitHandler}>
         <h2> <em>Register to save properties <br/>and much more</em></h2>
         
         <p>Already registered?  <Link to={'/login'}>Log  in </Link></p>
@@ -32,7 +57,7 @@ const Register = () => {
             Name{" "}
           </label>
           <div className="col-sm-10">
-            <input type="text" className="form-control" id="inputName" />
+            <input type="text" className="form-control" id="inputName" onChange={(e) => setName(e.target.value)} />
           </div>
         </div>
 
@@ -42,7 +67,12 @@ const Register = () => {
             Email{" "}
           </label>
           <div className="col-sm-10">
-            <input type="email" className="form-control" id="inputEmail3" />
+          {validation.email ? (
+              <p className="validation-message">{validation.email.message}</p>
+            ) : (
+              ""
+            )}
+            <input type="email" className="form-control" id="inputEmail3" onChange={(e) => setEmail(e.target.value)} />
           </div>
         </div>
         <div className="row mb-3">
@@ -51,7 +81,7 @@ const Register = () => {
             Password{" "}
           </label>
           <div className="col-sm-10">
-            <input type="password" className="form-control" id="inputPassword3" />
+            <input type="password" className="form-control" id="inputPassword3" onChange={(e) => setPassword(e.target.value)} />
           </div>
         </div>
         <div className="row mb-3 ">
@@ -60,7 +90,7 @@ const Register = () => {
             Confirm Password{" "}
           </label>
           <div className="col-sm-10">
-            <input
+            <input onChange={(e) => setConfirmPassword(e.target.value)}
               type="password"
               className="form-control"
               id="inputConfirmPassword3"

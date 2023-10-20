@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import landlord from "../assets/landlord.jpg";
 import tenant from "../assets/tenant.jpg"
+import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 const MainSection = () => {
+  const [latestHomes, setLatestHomes] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/home", {
+        params: {
+          limit: 3
+        }
+      })
+      .then((res) => {
+        console.log(res.data);
+        setLatestHomes(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <>
       <div className="text-center max-w-70%">
@@ -75,7 +94,141 @@ const MainSection = () => {
             </div>
           </div>
         </div>
+        <h1>Latest Uploads</h1>
+        <div className="d-flex gap-3 justify-content-center ">
+        {latestHomes.length > 0 && latestHomes.map((latestHome, index) => {
+          return (
+            // <div key={index} className="latest d-flex ">
+            //   <p>{latestHome.town}</p>
+            //   <p>{latestHome.monthlyRent}</p>
+    
+              <div className="card mb-3 w-25 mx-0 " key={index} >
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img
+                    src="..."
+                    className="img-fluid rounded-start"
+                    alt="..."
+                  />
+                </div>
+                <div className="col-md-10">
+                  <div className="card-body">
+                    <h5 className="card-title" >{latestHome.propertyType}</h5>
+                    <p className="card-text">{latestHome.monthlyRent}</p>
+                    <p className="card-text">{latestHome.town}</p>
+                    
+                  </div>
+                </div>
+              </div>
+             
+
+          </div>
+          )
+        })}
+        
       </div>
+      </div>
+      <Link
+                      className="search-button p-2 link-offset-2 link-underline link-underline-opacity-0 "
+                      to={`/list`}
+                    >
+                  View More
+                    </Link>
+                    <div class="container my-5 ">
+
+<footer class="bg-dark text-center text-lg-start text-dark">
+ 
+  <div class="container p-4 p-3 mb-2 bg-light text-dark">
+   
+    <div class="row mt-4">
+      
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">See other books</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="#!" class="text-dark"><i class="fas fa-book fa-fw fa-sm me-2"></i>Bestsellers</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark"><i class="fas fa-book fa-fw fa-sm me-2"></i>All books</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark"><i class="fas fa-user-edit fa-fw fa-sm me-2"></i>Our authors</a>
+          </li>
+        </ul>
+      </div>
+     
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Execution of the contract</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-dark"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i>Supply</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark"><i class="fas fa-backspace fa-fw fa-sm me-2"></i>Returns</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark"><i class="far fa-file-alt fa-fw fa-sm me-2"></i>Regulations</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark"><i class="far fa-file-alt fa-fw fa-sm me-2"></i>Privacy policy</a>
+          </li>
+        </ul>
+      </div>
+     
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Publishing house</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-dark">The BookStore</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">123 Street</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">05765 NY</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark"><i class="fas fa-briefcase fa-fw fa-sm me-2"></i>Send us a book</a>
+          </li>
+        </ul>
+      </div>
+     
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Write to us</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-dark"><i class="fas fa-at fa-fw fa-sm me-2"></i>Help in purchasing</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i>Check the order status</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark"><i class="fas fa-envelope fa-fw fa-sm me-2"></i>Join the newsletter</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+    
+  </div>
+  
+
+ 
+  <div class="text-center p-3 p-3 mb-2 bg-secondary" >
+   
+    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+ 
+</footer>
+
+</div>
+  
+
+
     </>
   );
 };

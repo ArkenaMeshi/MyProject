@@ -39,7 +39,7 @@ const HousesList = (props) => {
                     <p className="card-text">{home.town}</p>
                     <Link
                       className="search-button p-2 link-offset-2 link-underline link-underline-opacity-0"
-                      to={"/details"}
+                      to={`/details/${home._id}`}
                     >
                       View Details
                     </Link>

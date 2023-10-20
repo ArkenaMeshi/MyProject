@@ -4,10 +4,37 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const LogIn=()=>{
+
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  
+
+  const navigate = useNavigate();
+  const login = (e) => {
+    e.preventDefault();
+    axios
+      .post(
+        "http://localhost:8000/api/login",
+        {
+          email: loginEmail,
+          password: loginPassword,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((response) => navigate("/"))
+      .catch((error) => {
+        console.log(error);
+        console.log("error");
+      });
+    }
+
+
     return(
 
         <div className="container-register  d-flex justify-content-center w-50 mx-auto mb-20">
-      <form>
+      <form onSubmit={login}>
         <h2> <em>Log In  to save properties <br/>and much more</em></h2>
     
 
@@ -17,7 +44,7 @@ const LogIn=()=>{
             Email{" "}
           </label>
           <div className="col-sm-10">
-            <input type="email" className="form-control" id="inputEmail3" />
+            <input   onChange={(e) => setLoginEmail(e.target.value)} type="email" className="form-control" id="inputEmail3" />
           </div>
         </div>
         <div className="row mb-3">
@@ -26,7 +53,7 @@ const LogIn=()=>{
             Password{" "}
           </label>
           <div className="col-sm-10">
-            <input type="password" className="form-control" id="inputPassword3" />
+            <input   onChange={(e) => setLoginPassword(e.target.value)} type="password" className="form-control" id="inputPassword3" />
           </div>
         </div>
         <div className="text-center">

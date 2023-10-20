@@ -10,7 +10,8 @@ const About = () => {
 
       {/* <img src={about_image} className=" about_image img-fluid rounded-start" alt="..." /> */}
 
-      <div className="text-about text-align-center p-3   w-50 mx-auto">
+      <div className="w-75 mx-auto"> 
+      <div className="text-about text-align-center p-3 mx-auto">
         <h3>Built for Landlords & Tenants</h3>
         <p>
           Whether you’re a landlord or a tenant, OpenRent brings renting into
@@ -19,8 +20,8 @@ const About = () => {
           the same again.
         </p>
       </div>
-      <div className="about d-flex w-50 mx-auto ">
-        <div className="card mb-3 w-50 align-items-center ">
+      <div className="about d-flex ">
+        <div className="card my-3 mb-3 align-items-center ">
           <div className="row g-0 align-items-center">
             <div className="col">
               <div className="col-md-4 mx-auto p-2">
@@ -47,7 +48,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="card mb-3 w-50 align-items-center ">
+        <div className="card ms-3 my-3 align-items-center">
           <div className="row g-0 align-items-center">
             <div className="col">
               <div className="col-md-4 mx-auto p-2">
@@ -74,6 +75,7 @@ const About = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

@@ -24,6 +24,7 @@ const CreatePost = () => {
   const [smokersAllowed, setSmokersAllowed] = useState(false);
   const navigate = useNavigate();
   const [val, setValidation] = useState({});
+ 
   
 
   const onSubmitHandler = (e) => {
@@ -48,6 +49,7 @@ const CreatePost = () => {
         petsAllowed,
         smokersAllowed,
         billsincluded
+        
       })
       .then((res) => {
         console.log(res);
@@ -62,6 +64,7 @@ const CreatePost = () => {
           : console.log(err);
       });
   };
+
 
   return (
     <div className="w-50 mx-auto d-flex">
@@ -106,6 +109,7 @@ const CreatePost = () => {
                 type="text"
                 className="form-control"
               />
+              {val.propertyType ? <p className="text-danger">{val.propertyType.message}</p> : ""}
             </div>
             <div className="mb-3">
               <label htmlFor="housenumber" className="form-label">
@@ -116,6 +120,8 @@ const CreatePost = () => {
                 type="text"
                 className="form-control"
               />
+              {val.houseNumber ? <p className="text-danger">{val.houseNumber.message}</p> : ""}
+
             </div>
             <div className="mb-3">
               <label htmlFor="addressline" className="form-label">
@@ -126,6 +132,7 @@ const CreatePost = () => {
                 type="text"
                 className="form-control"
               />
+              {val.addressLine ? <p className="text-danger">{val.addressLine.message}</p> : ""}
             </div>
             <div className="mb-3">
               <label htmlFor="town" className="form-label">
@@ -136,6 +143,7 @@ const CreatePost = () => {
                 type="text"
                 className="form-control"
               />
+              {val.town ? <p className="text-danger">{val.town.message}</p> : ""}
             </div>
           </div>
           <div className="col">
@@ -148,6 +156,7 @@ const CreatePost = () => {
                 type="number"
                 className="form-control"
               />
+              {val.numberOfBedrooms ? <p className="text-danger">{val.numberOfBedrooms.message}</p> : ""}
             </div>
             <div className="mb-3">
               <label htmlFor="bathrooms" className="form-label">
@@ -158,17 +167,20 @@ const CreatePost = () => {
                 type="number"
                 className="form-control"
               />
+              {val.numberOfBathrooms ? <p className="text-danger">{val.numberOfBathrooms.message}</p> : ""}
             </div>
             <div className="mb-3">
+              <label>Furnishing Options</label>
               <select
                 onChange={(e) => setFurnishing(e.target.value)}
                 className="form-select"
                 aria-label=" select example"
               >
                 <option defaultValue="">Select</option>
-                <option value="furnishing">Furnishing</option>
-                <option value="unfurnishing">UnFurnishing</option>
+                <option value="Furnished">Furnished</option>
+                <option value="Unfurnished">UnFurnished</option>
               </select>
+              {val.furnishing ? <p className="text-danger">{val.furnishing.message}</p> : ""}
             </div>
           </div>
         </div>
@@ -183,6 +195,7 @@ const CreatePost = () => {
               type="number"
               className="form-control"
             />
+            {val.monthlyRent ? <p className="text-danger">{val.monthlyRent.message}</p> : ""}
           </div>
           <div className="mb-3">
             <label htmlFor="maxtenants" className="form-label">
@@ -193,6 +206,7 @@ const CreatePost = () => {
               type="number"
               className="form-control"
             />
+            {val.maxTenants ? <p className="text-danger">{val.maxTenants.message}</p> : ""}
           </div>
           <div className="mb-3">
             <label htmlFor="tenancylength" className="form-label">
@@ -203,6 +217,7 @@ const CreatePost = () => {
               type="text"
               className="form-control"
             />
+            {val.tenancylength ? <p className="text-danger">{val.tenancylength.message}</p> : ""}
           </div>
         </div>
         <div className="row">
@@ -283,7 +298,7 @@ const CreatePost = () => {
             </label>
           </div>
         </div>
-       
+      
         <button type="submit" className="btn search-button">
           Submit
         </button>
