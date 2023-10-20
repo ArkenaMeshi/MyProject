@@ -35,7 +35,7 @@ const About = () => {
                 <h5 className="card-title text-center">Tenants</h5>
                 <p className="card-text text-center">
                   We want everyone to be able to find their dream home on
-                  OpenRent. What’s more, we want you to feel safe and in control
+                  PerfectMove. What is more, we want you to feel safe and in control
                   while you find it. We led the way on banning tenant fees, and
                   still provide the best experience for tenants. No more ghost
                   adverts, pushy agents or annoying trips to the agent's office.

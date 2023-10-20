@@ -24,3 +24,8 @@ module.exports.getAllHouses = (request, response) => {
       .then((home) => response.json(home))
       .catch((err) => response.json(err));
   };
+  module.exports.deleteHome=(request, response) => {
+    Home.deleteOne({ _id: request.params.id })
+      .then((deleteConfirmation) => response.json(deleteConfirmation))
+      .catch((err) => response.json(err));
+  }

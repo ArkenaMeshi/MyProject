@@ -26,11 +26,11 @@ const HousesList = (props) => {
             <div className="card mb-3 w-50 " key={index}>
               <div className="row g-0">
                 <div className="col-md-4">
-                  <img
+                  {/* <img
                     src="..."
                     className="img-fluid rounded-start"
                     alt="..."
-                  />
+                  /> */}
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
