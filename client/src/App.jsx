@@ -14,6 +14,8 @@ import HousesList from "./components/HousesList";
 import Details from "./components/Details";
 import About from "./components/About";
 
+
+
 function App() {
   return (
     <>
@@ -28,6 +30,7 @@ function App() {
           <Route exact path="/list" element={<HousesList/>} />
           <Route exact path="/details/:id" element={<Details/>} />
           <Route exact path="/about" element={<About/>} />
+       
 
         </Routes>
       </BrowserRouter>

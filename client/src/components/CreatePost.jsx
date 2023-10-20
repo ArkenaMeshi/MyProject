@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import add_home from "../assets/add_home.jpg";
 
+
 const CreatePost = () => {
   const [propertyType, setPropertyType] = useState("");
   const [houseNumber, setHouseNumber] = useState("");

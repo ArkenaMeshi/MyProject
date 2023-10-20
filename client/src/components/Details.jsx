@@ -10,6 +10,8 @@ const Details = (props) => {
   const [home, setHome] = useState([]);
   const { id } = useParams();
   const [updated, setUpdated] = useState(false);
+ 
+
 
   const navigate = useNavigate();
 
@@ -407,8 +409,10 @@ const Details = (props) => {
         </div>
       </div>
       <button className="btn-danger" onClick={() => deleteHome(home._id)}>
-        Walk the Plank
+        Delete
       </button>
+      
+      
     </div>
   );
 };

@@ -9,7 +9,7 @@ const HousesList = (props) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/home")
+      .get("http://localhost:8000/api/houses")
       .then((res) => {
         console.log(res.data);
         setHousesList(res.data);
