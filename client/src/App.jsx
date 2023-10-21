@@ -13,6 +13,9 @@ import Profile from "./components/Profile";
 import HousesList from "./components/HousesList";
 import Details from "./components/Details";
 import About from "./components/About";
+import UpdateHouse from "./components/UpdateHouse";
+
+
 
 
 
@@ -30,6 +33,9 @@ function App() {
           <Route exact path="/list" element={<HousesList/>} />
           <Route exact path="/details/:id" element={<Details/>} />
           <Route exact path="/about" element={<About/>} />
+          <Route exact path="/details/:id/edit" element={<UpdateHouse />} />
+          
+
        
 
         </Routes>

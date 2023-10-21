@@ -96,26 +96,25 @@ const MainSection = () => {
             </div>
           </div>
         </div>
-        <h1>Latest Uploads</h1>
+        <h1 className="fw-light">Latest Uploads</h1>
         <div className="d-flex gap-3 justify-content-center ">
           {latestHomes.length > 0 &&
             latestHomes.map((latestHome, index) => {
               return (
-                // <div key={index} className="latest d-flex ">
-                //   <p>{latestHome.town}</p>
-                //   <p>{latestHome.monthlyRent}</p>
-
+                
                 <div className="card mb-3 w-25 mx-0 " key={index}>
                   <div className="row g-0">
                     <div className="col-md-4">
+                      <a href="">
                       <img
-                        src="..."
+                        src={latestHome.image}
                         className="img-fluid rounded-start"
                         alt="..."
                       />
+                      </a>
                     </div>
                     <div className="col-md-10">
-                      <div className="card-body">
+                      <div className="card-body text-center">
                         <h5 className="card-title">
                           {latestHome.propertyType}
                         </h5>

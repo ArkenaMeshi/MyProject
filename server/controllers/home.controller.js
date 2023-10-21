@@ -67,3 +67,15 @@ module.exports.getLatestHouses = (request, response) => {
           });
       };
   
+      module.exports.updateHome = (request, response) => {
+        Home.findOneAndUpdate({ _id: request.params.id }, request.body, {
+          new: true,
+          runValidators: true})
+          .then((home) => response.json(home))
+          .catch((err) => response.status(400).json(err));
+      };
+      module.exports.searchTown = (request, response) => {
+        Home.find({ town: {$regex: '.*' + request.query.search + '.*' }})
+          .then((homes) => response.json(homes))
+          .catch((err) => response.status(400).json(err));
+      };

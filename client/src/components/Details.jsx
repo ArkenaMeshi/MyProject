@@ -41,13 +41,20 @@ const Details = (props) => {
 
   return (
     <div>
-      <Link
-        className=" btn goback link-secondary link-offset-2  link-underline-opacity-0"
-        to={"/list"}
-      >
-        {" "}
-        Go Back To My Search
-      </Link>
+     <div>
+        <Link
+          className=" btn goback link-secondary link-offset-2  link-underline-opacity-0"
+          to={"/list"}
+        >
+          Go Back To My Search
+        </Link>
+        <Link
+          className=" btn goback link-secondary link-offset-2  link-underline-opacity-0"
+          to={`/details/${id}/edit`}
+        >
+          Edit Post
+        </Link>
+      </div>
 
       <div className="row">
         <div className="col">
@@ -76,13 +83,13 @@ const Details = (props) => {
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src={livingroom1} className="d-block w-100" alt="..." />
+                <img src={home.image} className="d-block w-100" alt="..." />
               </div>
               <div className="carousel-item">
-                <img src={home1} className="d-block w-100" alt="..." />
+                <img src={home.image} className="d-block w-100" alt="..." />
               </div>
               <div className="carousel-item">
-                <img src={kitchen1} className="d-block w-100" alt="..." />
+                <img src={home.image} className="d-block w-100" alt="..." />
               </div>
             </div>
             <button
@@ -109,7 +116,7 @@ const Details = (props) => {
               ></span>
               <span className="visually-hidden">Next</span>
             </button>
-            <h2>{home.propertyType}</h2>
+            <h2  className="fw-light">{home.propertyType}</h2>
           </div>
           <div className="card text-center mb-4">
             <div className="card-body">
@@ -242,7 +249,7 @@ const Details = (props) => {
                           viewBox="0 0 16 16"
                         >
                           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-                        </svg>
+                        </svg> 
                       ) : (
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

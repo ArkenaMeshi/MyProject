@@ -1,6 +1,24 @@
 import React from "react";
 
 const HeroSection = () => {
+  const [homes, setHomes] = useState([]);
+  const [search, setSearch] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const searchTown = () => {
+    axios
+      .get("http://localhost:8000/api/home/search-town", {
+        params: {
+          search: search,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setHomes(res.data);
+        setIsOpen(true);
+      })
+      .catch((err) => console.log(res.data));
+  };
   return (
     <div className="hero-section position-relative">
       <div className="header container d-flex align-items-center flex-column">
@@ -30,13 +48,13 @@ const HeroSection = () => {
               />
             </svg>
           </span>
-          <input
+          <input  onChange={(e) => setSearch(e.target.value)}
             type="text"
             className="form-control"
             aria-label="Amount (to the nearest dollar)"
           />
           <span className="input-group-text search-radius">
-            <button type="button" className="btn search-button">
+            <button type="button"   onClick={searchTown} className="btn search-button">
               Search
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,6 +73,25 @@ const HeroSection = () => {
             </button>
           </span>
         </div>
+        {isOpen && homes && (
+          <div className="show-search w-50 bg-white text-dark px-5 py-2">
+            {homes.length > 0 &&
+              homes.map((home, index) => {
+                return (
+                  <div className="d-flex">
+                    <p className="pe-3">{home.town}</p>
+                    <Link to={`/details/${home._id}`}>View Home</Link>
+                  </div>
+                  );
+                })}
+            </div>
+          )}
+          {isOpen && homes && homes.length === 0 && (
+          <div>
+            <p>No homes found!</p>
+          </div>
+        )}
+
       </div>
     </div>
   );

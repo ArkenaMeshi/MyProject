@@ -25,9 +25,10 @@ const CreatePost = () => {
   const [smokersAllowed, setSmokersAllowed] = useState(false);
   const navigate = useNavigate();
   const [val, setValidation] = useState({});
+  const [image,setImage]=useState("");
  
-  
-
+ 
+ 
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
@@ -49,7 +50,8 @@ const CreatePost = () => {
         studentsAllowed,
         petsAllowed,
         smokersAllowed,
-        billsincluded
+        billsincluded,
+        image
         
       })
       .then((res) => {
@@ -183,6 +185,17 @@ const CreatePost = () => {
               </select>
               {val.furnishing ? <p className="text-danger">{val.furnishing.message}</p> : ""}
             </div>
+            <div className="mb-3">
+              <label htmlFor="imge" className="form-label">
+                Image Url {" "}
+              </label>
+              <input
+                onChange={(e) => setImage(e.target.value)}
+                type="text"
+                className="form-control"
+              />
+              {val.image ? <p className="text-danger">{val.image.message}</p> : ""}
+            </div>
           </div>
         </div>
         <div>
@@ -299,6 +312,8 @@ const CreatePost = () => {
             </label>
           </div>
         </div>
+      
+       
       
         <button type="submit" className="btn search-button">
           Submit
