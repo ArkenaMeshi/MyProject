@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const HeroSection = () => {
   const [homes, setHomes] = useState([]);
@@ -7,7 +9,7 @@ const HeroSection = () => {
 
   const searchTown = () => {
     axios
-      .get("http://localhost:8000/api/home/search-town", {
+      .get("http://localhost:8000/api/search-town", {
         params: {
           search: search,
         },
@@ -22,9 +24,11 @@ const HeroSection = () => {
   return (
     <div className="hero-section position-relative">
       <div className="header container d-flex align-items-center flex-column">
-        <h2><em>Renting the way it should be</em></h2>
+        <h2>
+          <em>Renting the way it should be</em>
+        </h2>
         <p className="py-2">
-        The destination for finding, advertising, and managing rental property
+          The destination for finding, advertising, and managing rental property
         </p>
         <div className="input-group mb-3 w-50">
           <span className="input-group-text location-radius">
@@ -48,13 +52,18 @@ const HeroSection = () => {
               />
             </svg>
           </span>
-          <input  onChange={(e) => setSearch(e.target.value)}
+          <input
+            onChange={(e) => setSearch(e.target.value)}
             type="text"
             className="form-control"
             aria-label="Amount (to the nearest dollar)"
           />
           <span className="input-group-text search-radius">
-            <button type="button"   onClick={searchTown} className="btn search-button">
+            <button
+              type="button"
+              className="btn search-button"
+              onClick={searchTown}
+            >
               Search
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -82,16 +91,16 @@ const HeroSection = () => {
                     <p className="pe-3">{home.town}</p>
                     <Link to={`/details/${home._id}`}>View Home</Link>
                   </div>
-                  );
-                })}
-            </div>
-          )}
-          {isOpen && homes && homes.length === 0 && (
+                );
+              })}
+          </div>
+        )}
+
+        {isOpen && homes && homes.length === 0 && (
           <div>
             <p>No homes found!</p>
           </div>
         )}
-
       </div>
     </div>
   );

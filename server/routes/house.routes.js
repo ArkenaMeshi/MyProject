@@ -7,6 +7,6 @@ module.exports = (app) => {
     app.get("/api/houses",HomeController.showAllHouses);
     app.get("/api/home/:id", HomeController.getHome);
     app.patch("/api/home/:id/edit", HomeController.updateHome);
-    app.delete("/api/home/:id",HomeController.deleteHome)
-    app.get("/api/home/search-town",HomeController.searchTown);
+    app.delete("/api/home/:id",HomeController.deleteHome);
+    app.get("/api/search-town",HomeController.searchTown);
 }
