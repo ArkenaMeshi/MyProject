@@ -6,12 +6,13 @@ import { Link } from "react-router-dom";
 
 const MainSection = () => {
   const [latestHomes, setLatestHomes] = useState([]);
+ 
 
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/home", {
         params: {
-          limit: 4,
+          limit: 3,
         },
       })
       .then((res) => {
@@ -104,22 +105,20 @@ const MainSection = () => {
                 
                 <div className="card mb-3 w-25 mx-0 " key={index}>
                   <div className="row g-0">
-                    <div className="col-md-4">
-                      <a href="">
+                    <div className="col-md- ">
+                      <Link  to={'list'}>
                       <img
                         src={latestHome.image}
-                        className="img-fluid rounded-start"
+                        className="mw-100 "
                         alt="..."
                       />
-                      </a>
+                      </Link>
                     </div>
                     <div className="col-md-10">
                       <div className="card-body text-center">
-                        <h5 className="card-title">
-                          {latestHome.propertyType}
-                        </h5>
-                        <p className="card-text">{latestHome.monthlyRent}</p>
-                        <p className="card-text">{latestHome.town}</p>
+                        
+                        <p className="card-text">{latestHome.numberOfBedrooms} Bedrooms {latestHome.propertyType} , Monthly Rent ${latestHome.monthlyRent}  {latestHome.town}</p>
+                       
                       </div>
                     </div>
                   </div>
@@ -129,61 +128,61 @@ const MainSection = () => {
         </div>
       </div>
       <Link
-        className="search-button p-2 link-offset-2 link-underline link-underline-opacity-0 "
+        className="search-button p-2 link-offset-2 link-underline link-underline-opacity-0  "
         to={`/list`}
       >
         View More
       </Link>
       <div className="container my-5 ">
-        <footer className="bg-dark text-center text-lg-start text-dark">
-          <div className="container p-4 p-3 mb-2 bg-light text-dark">
+        <footer className="bg-dark text-center text-lg-start text-dark link-offset-2 link-underline link-underline-opacity-0">
+          <div className="container p-4 p-3 mb-2 bg-light text-dark link-offset-2 link-underline link-underline-opacity-0 ">
             <div className="row mt-4">
-              <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 className="text-uppercase">See other books</h5>
+              <div className="col-lg-3 col-md-6 mb-4 mb-md-0 ">
+                <h5 className="text-uppercase">See other property </h5>
 
                 <ul className="list-unstyled mb-0">
                   <li>
-                    <a href="#!" className="text-dark">
-                      <i className="fas fa-book fa-fw fa-sm me-2"></i>Bestsellers
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
+                      <i className="fas fa-book fa-fw fa-sm me-2 "></i>Blog
                     </a>
                   </li>
                   <li>
-                    <a href="#!" className="text-dark">
-                      <i className="fas fa-book fa-fw fa-sm me-2"></i>All books
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
+                      <i className="fas fa-book fa-fw fa-sm me-2"></i>Help Center
                     </a>
                   </li>
                   <li>
-                    <a href="#!" className="text-dark">
-                      <i className="fas fa-user-edit fa-fw fa-sm me-2"></i>Our
-                      authors
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
+                      <i className="fas fa-user-edit fa-fw fa-sm me-2"></i>
+                     Community
                     </a>
                   </li>
                 </ul>
               </div>
 
               <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 className="text-uppercase">Execution of the contract</h5>
+                <h5 className="text-uppercase">Contract</h5>
 
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#!" className="text-dark">
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
                       <i className="fas fa-shipping-fast fa-fw fa-sm me-2"></i>
-                      Supply
+                      Terms
                     </a>
                   </li>
                   <li>
-                    <a href="#!" className="text-dark">
-                      <i className="fas fa-backspace fa-fw fa-sm me-2"></i>Returns
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
+                      <i className="fas fa-backspace fa-fw fa-sm me-2"></i>Privacy
                     </a>
                   </li>
                   <li>
-                    <a href="#!" className="text-dark">
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
                       <i className="far fa-file-alt fa-fw fa-sm me-2"></i>
                       Regulations
                     </a>
                   </li>
                   <li>
-                    <a href="#!" className="text-dark">
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
                       <i className="far fa-file-alt fa-fw fa-sm me-2"></i>Privacy
                       policy
                     </a>
@@ -192,27 +191,27 @@ const MainSection = () => {
               </div>
 
               <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 className="text-uppercase">Publishing house</h5>
+                <h5 className="text-uppercase"> Jobs</h5>
 
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#!" className="text-dark">
-                      The BookStore
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
+                     Affiliates
                     </a>
                   </li>
                   <li>
-                    <a href="#!" className="text-dark">
-                      123 Street
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
+                      123 Street 
                     </a>
                   </li>
                   <li>
-                    <a href="#!" className="text-dark">
-                      05765 NY
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
+                      05765 NY 
                     </a>
                   </li>
                   <li>
-                    <a href="#!" className="text-dark">
-                      <i className="fas fa-briefcase fa-fw fa-sm me-2"></i>Send us a
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
+                      <i className="fas fa-briefcase fa-fw fa-sm me-2 "></i>Send us a
                       book
                     </a>
                   </li>
@@ -224,19 +223,19 @@ const MainSection = () => {
 
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#!" className="text-dark">
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
                       <i className="fas fa-at fa-fw fa-sm me-2"></i>Help in
                       purchasing
                     </a>
                   </li>
                   <li>
-                    <a href="#!" className="text-dark">
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
                       <i className="fas fa-shipping-fast fa-fw fa-sm me-2"></i>Check
                       the order status
                     </a>
                   </li>
                   <li>
-                    <a href="#!" className="text-dark">
+                    <a href="#!" className="text-dark link-offset-2 link-underline link-underline-opacity-0">
                       <i className="fas fa-envelope fa-fw fa-sm me-2"></i>Join the
                       newsletter
                     </a>

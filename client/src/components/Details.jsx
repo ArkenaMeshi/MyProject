@@ -404,7 +404,7 @@ const Details = (props) => {
           
         </div>
       </div>
-      <button className="btn-danger" onClick={() => deleteHome(home._id)}>
+      <button className=" btn btn-danger" onClick={() => deleteHome(home._id)}>
         Delete
       </button>
       

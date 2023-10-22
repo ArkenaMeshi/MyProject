@@ -8,7 +8,7 @@ module.exports.createHome = (request, response) => {
         .catch(err => response.status(400).json(err));
 }
 module.exports.getLatestHouses = (request, response) => {
-  const limit = request.query.limit ?? 4;
+  const limit = request.query.limit ?? 3;
     Home.find({}).limit(limit).sort({createdAt: 'desc'})
       .then((home) => {
         console.log(home);
@@ -32,16 +32,6 @@ module.exports.getLatestHouses = (request, response) => {
       .then((deleteConfirmation) => response.json(deleteConfirmation))
       .catch((err) => response.json(err));
   }
-
-
-  // module.exports.updatePost = (request, response) => {
-    
-  //       Home.findOneAndUpdate({ _id: request.params.id }, request.body, {
-  //         new: true,
-  //       })
-  //         .then((updatePost) => response.json(updatePost))
-  //         .catch((err) => response.status(300).json(err));
-  //     }
 
       module.exports.showAllHouses = (request, response) => {
         Home.find({}).sort({createdAt: 'desc'})

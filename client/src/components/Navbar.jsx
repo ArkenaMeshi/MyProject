@@ -33,6 +33,11 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
+              <li>
+              <button type="button" className="btn btn-outline-success btn-sm ">
+              <Link className=" nav-link active fs-6  " to={'/create'} >Add Listing</Link>
+              </button>
+              </li>
               <li className="nav-item">
                 <Link className="nav-link active fs-5" aria-current="page" to={'/about'} >
                   About
