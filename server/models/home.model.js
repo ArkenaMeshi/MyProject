@@ -11,7 +11,7 @@ const HomeSchema = new mongoose.Schema(
     furnishing: { type: String, required: [true, "Furnishing is required"] },
     monthlyRent: { type: Number, required: [true, "Monthly Rent is required"] },
     maxTenants: { type: Number, required: [true, "Max Tenants is required"] },
-    tenancylength: { type: String, required: [true, "Tenancy Length is required"] },
+    tenancylength: { type: Number, required: [true, "Tenancy Length is required"] },
     image : { type: String, required: [true, "Image  is required"] },
     gardenAccess: { type: Boolean },
     parking: { type: Boolean },
@@ -20,6 +20,7 @@ const HomeSchema = new mongoose.Schema(
     studentsAllowed: { type: Boolean },
     petsAllowed: { type: Boolean },
     smokersAllowed: { type: Boolean },
+    rented: {type: Boolean}
   },
   { timestamps: true }
 );

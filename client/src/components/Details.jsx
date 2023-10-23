@@ -10,10 +10,22 @@ const Details = (props) => {
   const [home, setHome] = useState([]);
   const { id } = useParams();
   const [updated, setUpdated] = useState(false);
- 
-
+  const [rented, setRented] = useState(false);
 
   const navigate = useNavigate();
+
+  const rentHouse = () => {
+    axios
+      .patch(`http://localhost:8000/api/home/${id}/edit`, {
+        rented: true
+      })
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+        setRented(true);
+      })
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
     axios
@@ -21,6 +33,7 @@ const Details = (props) => {
       .then((res) => {
         console.log(res);
         setHome(res.data);
+        setRented(res.data.rented)
         console.log(res.data);
       })
       .catch((err) => console.log("err", err));
@@ -41,7 +54,7 @@ const Details = (props) => {
 
   return (
     <div>
-     <div>
+      <div>
         <Link
           className=" btn goback link-secondary link-offset-2  link-underline-opacity-0"
           to={"/list"}
@@ -116,7 +129,7 @@ const Details = (props) => {
               ></span>
               <span className="visually-hidden">Next</span>
             </button>
-            <h2  className="fw-light">{home.propertyType}</h2>
+            <h2 className="fw-light">{home.propertyType}</h2>
           </div>
           <div className="card text-center mb-4">
             <div className="card-body">
@@ -209,7 +222,7 @@ const Details = (props) => {
                 No hidden charges
               </p>
               <p>Ready to rent now ? </p>
-              <button className="rent-button"> Rent Now </button>
+              <button onClick={rentHouse} disabled={rented} className={rented ? "test-disabled" : "rent-button"}>{rented ? "Rented" : "Rent Now"}</button>
             </div>
           </div>
 
@@ -249,7 +262,7 @@ const Details = (props) => {
                           viewBox="0 0 16 16"
                         >
                           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-                        </svg> 
+                        </svg>
                       ) : (
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -401,14 +414,11 @@ const Details = (props) => {
               </div>
             </div>
           </div>
-          
         </div>
       </div>
-      <button className=" btn btn-danger" onClick={() => deleteHome(home._id)}>
+      <button className="btn btn-danger" onClick={() => deleteHome(home._id)}>
         Delete
       </button>
-      
-      
     </div>
   );
 };

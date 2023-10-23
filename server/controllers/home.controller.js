@@ -33,6 +33,8 @@ module.exports.getLatestHouses = (request, response) => {
       .catch((err) => response.json(err));
   }
 
+
+
       module.exports.showAllHouses = (request, response) => {
         Home.find({}).sort({createdAt: 'desc'})
           .then((home) => {
@@ -64,6 +66,7 @@ module.exports.getLatestHouses = (request, response) => {
           .then((home) => response.json(home))
           .catch((err) => response.status(400).json(err));
       };
+      
       module.exports.searchTown = (request, response) => {
         Home.find({ town: {$regex: '.*' + request.query.search + '.*' }})
           .then((homes) => response.json(homes))

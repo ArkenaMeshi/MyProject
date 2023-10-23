@@ -3,11 +3,9 @@ const { authenticate } = require("../config/jwt.config");
 module.exports = (app) => {
    
     app.post('/api/home', HomeController.createHome);   
-    app.get("/api/home",HomeController.getAllHomes);
+    app.get("/api/home",HomeController.getAllHomes)
     app.get("/api/houses",HomeController.showAllHouses);
-
-    app.get("/api/home",HomeController.getLatestHouses);
-    
+    app.get("/api/latest-homes", HomeController.getLatestHouses)
     app.get("/api/home/:id", HomeController.getHome);
     app.patch("/api/home/:id/edit", HomeController.updateHome);
     app.delete("/api/home/:id",HomeController.deleteHome);

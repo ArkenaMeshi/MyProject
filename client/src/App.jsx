@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./views/Main";
-
 import CreatePost from './components/CreatePost';
 import Navbar from "./components/Navbar";
 import Register from "./components/Register";
@@ -14,10 +13,6 @@ import HousesList from "./components/HousesList";
 import Details from "./components/Details";
 import About from "./components/About";
 import UpdateHouse from "./components/UpdateHouse";
-
-
-
-
 
 function App() {
   return (
@@ -34,10 +29,6 @@ function App() {
           <Route exact path="/details/:id" element={<Details/>} />
           <Route exact path="/about" element={<About/>} />
           <Route exact path="/details/:id/edit" element={<UpdateHouse />} />
-          
-
-       
-
         </Routes>
       </BrowserRouter>
 

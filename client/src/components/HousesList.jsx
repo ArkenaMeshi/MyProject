@@ -22,7 +22,6 @@ const HousesList = (props) => {
       {housesList.length > 0 &&
         housesList.map((home, index) => {
           return (
-        
             <div className="card mb-3 w-50 " key={index}>
               <div className="row g-0">
                 <div className="col-md-4">
@@ -34,15 +33,24 @@ const HousesList = (props) => {
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
-                    <h5 className="card-title" >{home.propertyType}</h5>
-                    <p className="card-text">{home.monthlyRent}</p>
+                    <h5 className="card-title">{home.propertyType}</h5>
+                    <p className="card-text"> $ {home.monthlyRent}</p>
                     <p className="card-text">{home.town}</p>
-                    <Link
-                      className="search-button p-2 link-offset-2 link-underline link-underline-opacity-0"
-                      to={`/details/${home._id}`}
-                    >
-                      View Details
-                    </Link>
+                    {!home.rented && (
+                      <Link
+                        className="search-button p-2 link-offset-2 link-underline link-underline-opacity-0"
+                        to={`/details/${home._id}`}
+                      >
+                        View Details
+                      </Link>
+                    )}
+                    {home.rented && (
+                      <div
+                        className="d-inline-block cursor-na search-button p-2 link-offset-2 link-underline link-underline-opacity-0"
+                      >
+                        Unavailable
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

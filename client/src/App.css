@@ -1,3 +1,4 @@
+
 .hero-section {
   background-image: url("./assets/background.jpg");
   background-repeat: no-repeat;
@@ -106,3 +107,10 @@
   padding: 30px;
 }
 
+.test-disabled {
+  background-color: gray;
+}
+
+.cursor-na {
+  cursor: not-allowed;
+} 
